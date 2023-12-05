@@ -1,0 +1,113 @@
+#define _CRT_NO_WARNINGS
+#include <stdio.h>
+
+struct books{
+  char Title;
+  char Authors;
+  char Press;
+  int Page;
+  int Price;
+  char rent;
+};
+
+int main(void)
+{
+    struct books st1,st2,st3,st4,st5;
+    st1.Title = "Truth";
+    st1.Authors = "John";
+    st1.Press = "Century";
+    st1.Page = 300;
+    st1.Price = 20,000;
+    st1.rent="available";
+
+    st2.Title = "Love";
+    st2.Authors = "Paul";
+    st2.Press = "Goods";
+    st2.Page = 200;
+    st2.Price = 15,000;
+    st2.rent="available";
+
+    st3.Title = "Joy";
+    st3.Authors = "James";
+    st3.Press = "Cookie";
+    st3.Page = 250;
+    st3.Price = 18,000;
+    st3.rent="available";
+
+    st4.Title = "Thanks";
+    st4.Authors = "Mark";
+    st4.Press = "Saejong";
+    st4.Page = 240;
+    st4.Price = 21,000;
+    st4.rent="available";
+
+    st5.Title = "God";
+    st5.Authors = "Johnson";
+    st5.Press = "Jungjo";
+    st5.Page = 450;
+    st5.Price = 35,000;
+    st5.rent="available";
+
+    enum{도서목록,검색,대출,반납,종료} choice;
+    printf("0번:도서목록,1번:검색,2번:대출,3번:반납,4번:종료\n");
+    scanf("%d", &choice);
+
+    if(choice==도서목록)
+    {
+        printf("Title Authors Press Page Price\n");
+        printf("-------------------------------------------------\n");
+        printf("%s %s %s %d %d\n", st1.Title, st1.Authors, st1.Press, st1.Page, st1.Price);
+        printf("%s %s %s %d %d\n", st2.Title, st2.Authors, st2.Press, st2.Page, st2.Price);
+        printf("%s %s %s %d %d\n", st3.Title, st3.Authors, st3.Press, st3.Page, st3.Price);
+        printf("%s %s %s %d %d\n", st4.Title, st4.Authors, st4.Press, st4.Page, st4.Price);
+        printf("%s %s %s %d %d\n", st5.Title, st5.Authors, st5.Press, st5.Page, st5.Price);
+    }
+
+    else if(choice==검색)
+    {
+        printf("검색할 도서를 선택하세요.\n");
+        scanf("%s", &book);
+
+        if(book=="Truth") printf("%s %s %s %d %d\n", st1.Title, st1.Authors, st1.Press, st1.Page, st1.Price, st1.rent);
+        else if(book=="Love") printf("%s %s %s %d %d\n", st2.Title, st2.Authors, st2.Press, st2.Page, st2.Price, st2.rent);
+        else if(book=="Joy") printf("%s %s %s %d %d\n", st3.Title, st3.Authors, st3.Press, st3.Page, st3.Price, st3.rent);
+        else if(book=="Thanks") printf("%s %s %s %d %d\n", st4.Title, st4.Authors, st4.Press, st4.Page, st4.Price, st4.rent);
+        else if(book=="God") printf("%s %s %s %d %d\n", st5.Title, st5.Authors, st5.Press, st5.Page, st5.Price, st5.rent);
+        else printf("보유하고 있지 않습니다.\n");
+    }
+
+
+     else if(choice==대출)
+    {
+        printf("대출할 책 제목을 입력하시오.\n");
+        scanf("%s", &a);
+
+        if(a.rent=="available")
+        {
+            printf("대출 되었습니다.\n");
+            a.rent = "borrowing";
+        }
+        else if(a.rent=="borrowing")
+            printf("대출 중이라 대출 할 수 없습니다.\n");
+        else printf("보유 중인 책이 아닙니다.\n");
+
+     else if(choice==반납)
+      {
+          printf("반납할 책 제목을 입력하시오\n");
+          scanf("%s", &b);
+
+          if(a.rent=="borrowing")
+          {
+            printf("책이 반납되었습니다.\n");
+            a.rent="available";
+          }
+          else if(a.rent=="available"
+              printf("대출 되지 않은 책입니다.\n");
+          else printf("보유 중인 책이 아닙니다.\n");
+
+              
+     else if(choice==종료)
+      break;
+
+    return 0;
+}
